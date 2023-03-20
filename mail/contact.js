@@ -13,16 +13,12 @@ $(function () {
 
             $this = $("#sendMessageButton");
             $this.prop("disabled", true);
-
+            var text = "Name = " + $("#name").val() + "\n ,MobileNo = " + $("#email").val() + "\n ,Subject = " + $("#subject").val() + "\n ,Message = " + $("#message").val();
+            var URL = "https://api.telegram.org/bot6107738973:AAHRLQMYCse9alM1sDJ1T7urqIkU8hG-nMM/sendMessage?chat_id=860008071&text="+ text;
             $.ajax({
-                url: "contact.php",
+                url: URL,
                 type: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                },
+                data: JSON.stringify(null),
                 cache: false,
                 success: function () {
                     $('#success').html("<div class='alert alert-success'>");
